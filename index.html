@@ -9,26 +9,54 @@ Computer-Based Test (CBT) Practice Platform for WAEC, NECO & JAMB Candidates</ti
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
+  
 <div class="nysc-branding">
   <div class="branding-content">
     <span class="badge">SDG 4</span>
-    <p>Developed as an NYSC Community Development Project by <strong>Corp Member ADIYU NIYI ABEEB (ED/25C/0585)</strong></p>
+    <p>Developed as an NYSC Community Development Project by <strong>Corp Member ADIYU N.A (ED/25C/0585)</strong></p>
+  
+  <a href="#" id="aboutBtn">About Us</a>
+    <a href="#" id="contactBtn">Contact Us</a>
+
   </div>
 </div>
 <!-- LOGIN PAGE -->
  
 <div class="login-page" id="loginPage">
-    <!-- video section incase i want to remove it -->
-  <video autoplay muted loop playsinline id="bgVideo" poster="img/cbtimg.jpg">
-      <!-- Ensure 'cbt-nysc-sdg-video.mp4' is the correct file name and path -->
-      <source src="videos/corp1.mp4" type="video/mp4">
-      <!-- Your browser does not support the video tag. -->
-  </video>
+<!-- video section -->
+<video autoplay muted playsinline id="bgVideo" poster="img/cbtimg.jpg">
+    <source src="videos/corp.mp4" type="video/mp4">
+    <!-- Your browser does not support the video tag. -->
+</video>
+
 <img src="img/nysc (1).png" alt="SDG Logo" class="sdg-logo-overlay">
 <div class="dg-container">
-      <!-- Make sure you have the DG's official portrait saved in your img folder, e.g., 'img/dg-nysc-portrait.jpg' -->
-      <img src="img/dg-official.jpg" alt="Director General NYSC" class="dg-portrait">
-  </div>
+    <img src="img/dg-official.jpg" alt="Director General NYSC" class="dg-portrait">
+</div>
+
+<script>
+  // Array of your video files
+  const videos = [
+    'videos/corp.mp4',
+    'videos/sdg2.mp4',
+    'videos/sdg.mp4',
+    'videos/corp1.mp4',
+    'videos/corp2.mp4',
+    'videos/corp3.mp4'
+  ];
+
+  let currentVideo = 0;
+  const videoElement = document.getElementById('bgVideo');
+
+  // Listen for when a video ends
+  videoElement.addEventListener('ended', () => {
+    // Move to next video
+    currentVideo = (currentVideo + 1) % videos.length; // loops back to first
+    videoElement.src = videos[currentVideo];
+    videoElement.play();
+  });
+</script>
+
   <!-- video section incase i want to remove it. nah here it end -->
   
   <div class="login-bg"></div>
@@ -120,16 +148,118 @@ Computer-Based Test (CBT) Practice Platform for WAEC, NECO & JAMB Candidates</ti
           <div id="corrections"></div>
           <button class="cta" onclick="retakeExam()">Retake Exam</button>
           <button onclick="downloadPDF()">Download Result as PDF</button>
-          <!-- <p style="margin-top:20px;color:var(--muted);font-size:13px">
-            Developed as an NYSC SDG 4 (Quality Education) Community Development Project
-            <br><i>Implemented by NYSC Corps Members in Edo State</i>
-          </p> -->
-          
+          <!-- Footer Section -->
         </section>
       </main>
     </div>
   </div>
 </div>
+
+<!-- ================= ABOUT US MODAL ================= -->
+<div id="aboutModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeAbout">&times;</span>
+
+    <div class="about-container">
+
+      <div class="about-header">
+        <h2>About Us</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="about-content">
+
+        <p>
+          The <strong>NYSC SDG 4 – Quality Education CBT Practice Platform</strong>
+          is a Community Development Service (CDS) initiative developed in
+          alignment with the United Nations Sustainable Development Goal 4 (SDG 4),
+          which seeks to ensure inclusive and equitable quality education and
+          promote lifelong learning opportunities for all.
+        </p>
+
+        <p>
+          This digital examination platform was designed and implemented by
+          <strong>Corp Member ADIYU NIYI ABEEB (ED/25C/0585)</strong>
+          as part of his commitment to educational advancement during the
+          National Youth Service Corps (NYSC) programme.
+        </p>
+
+        <p>
+          The project provides secondary school students with access to a
+          structured Computer-Based Test (CBT) environment that simulates real
+          examination conditions. Through this platform, students can practice
+          examination-style questions and improve their preparedness for national
+          examinations such as WAEC, NECO, and JAMB.
+        </p>
+
+        <div class="about-objectives">
+          <h3>Project Objectives</h3>
+          <ul>
+            <li>Enhance students’ familiarity with digital examination systems</li>
+            <li>Improve time management and examination confidence</li>
+            <li>Support academic excellence and performance</li>
+            <li>Promote digital literacy within the community</li>
+          </ul>
+        </div>
+
+        <p>
+          This platform represents a practical contribution toward strengthening
+          educational outcomes and advancing sustainable development through
+          technology-driven solutions. Developed with dedication and a strong
+          sense of community service, this initiative reflects a commitment to
+          empowering learners and supporting the broader goal of quality education
+          for all.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CONTACT US MODAL ================= -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeContact">&times;</span>
+
+    <div class="about-container">
+
+      <div class="about-header">
+        <h2>Contact Us</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="about-content">
+
+        <p>
+          For inquiries, academic collaboration, technical support, or
+          further information regarding the
+          <strong>NYSC SDG 4 – Quality Education CBT Practice Platform</strong>,
+          kindly reach out through the official contact details provided below.
+        </p>
+
+        <div class="about-objectives">
+          <h3>Project Contact Information</h3>
+          <ul>
+            <li><strong>Project Coordinator:</strong> Corp Member ADIYU NIYI ABEEB</li>
+            <li><strong>NYSC State Code:</strong> ED/25C/0585</li>
+            <li><strong>Community Development Service:</strong> SDG 4 – Quality Education</li>
+            <li><strong>Email Address:</strong> statemantech@gmail.com | adeniyiabeeb1999@gmail.com</li>
+            <li><strong>Telephone:</strong> +234 703 736 8995|+234 807 930 3350</li>
+            <li><strong>Service Year:</strong> 2025/2026 Batch C1</li>
+          </ul>
+        </div>
+
+        <p>
+          We remain committed to strengthening digital learning systems,
+          improving examination readiness, and supporting sustainable
+          educational development within our community.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> -->
 <script>
@@ -676,6 +806,123 @@ Chemistry: [
   {q: 'Which compound is organic?', opts: ['CH4','NaCl','CaCO3','H2O'], ans:0}
 ],
 Biology: [
+  {q: 'Balance: FeO + CO → Fe + CO2', opts: ['FeO + CO → 2Fe + 2CO','2FeO + 3CO → 4Fe + 3CO','FeO + 2CO → 2Fe + 2CO','FeO + 3CO → 2Fe + 3CO'], ans:2},
+{q: 'What is the trend for ionization energy across a period in the periodic table?', opts: ['Increases from left to right','Remains constant','Varies randomly','Decreases from left to right'], ans:0},
+{q: 'Which of the following alkanes has a straight-chain structure?', opts: ['Cyclopentane','Isobutane','2-methylpropane','Pentane'], ans:3},
+{q: 'When an acidic solution is diluted, what happens to its pH?', opts: ['It depends on the acid','It decreases','It remains the same','It increases'], ans:3},
+{q: 'Product of electrolysis of aqueous NaCl using inert electrodes?', opts: ['Hydrogen at cathode, chlorine at anode','Hydrogen at cathode, oxygen at anode','Sodium at cathode, chlorine at anode','Sodium at cathode, oxygen at anode'], ans:0},
+{q: 'Which organic compound is responsible for the characteristic aroma of fruits?', opts: ['Alkane','Alkyne','Ester','Amine'], ans:2},
+{q: 'In monohybrid inheritance, if an organism carries two different alleles for a gene, it is:', opts: ['Homozygous','Dominant','Heterozygous','Recessive'], ans:2},
+{q: 'Tissue responsible for transporting water and minerals in plants?', opts: ['Xylem','Epidermis','Parenchyma','Phloem'], ans:0},
+{q: 'Which of the following processes is involved in reproduction of developing organisms?', opts: ['Budding','Germination','Fertilization','Pollination'], ans:2},
+{q: 'Behavioral adaptation for dealing with a hot climate could include:', opts: ['Hibernating during hottest part of day','Large scales on lizard’s back','Feeding during hottest part of day','Small kidney to conserve water'], ans:0},
+{q: 'The natural place of an organism or community is called:', opts: ['Niche','Habit','Biome','Habitat'], ans:3},
+{q: 'Which process converts atmospheric nitrogen into a form plants can use?', opts: ['Denitrification','Nitrogen fixation','Ammonification','Nitrification'], ans:1},
+{q: 'Which function is performed by the skin to maintain homeostasis?', opts: ['Regulation of body temperature','Filtration of blood','Production of hormones','Digestion of food'], ans:0},
+{q: 'Which type of reproduction involves fusion of gametes from two parents?', opts: ['Sexual reproduction','Asexual reproduction','Binary fission','Budding'], ans:0},
+{q: 'Which processes are involved in nutrient cycling in ecosystems?', opts: ['Erosion, weathering, sedimentation','Decomposition, evaporation, precipitation','Nitrogen fixation, denitrification, ammonification','Respiration, photosynthesis, transpiration'], ans:2},
+{q: 'What is autotrophic nutrition?', opts: ['Organisms break down complex organics','Organisms obtain food from others','Organisms feed on plants and animals','Organisms produce food using sunlight or inorganic substances'], ans:3},
+{q: 'The theory of evolution is:', opts: ['Species were created in present form','Organisms strive to improve','Species change over time naturally','Evolution occurs suddenly'], ans:2},
+{q: 'Which of the following is a male reproductive organ in humans?', opts: ['Uterus','Ovary','Testis','Fallopian tube'], ans:2},
+{q: 'Which of the following is an example of behavioral adaptation?', opts: ['Sharp teeth','Migration','Wings','Camouflage'], ans:1},
+{q: 'Which trait is NOT visible in Down syndrome?', opts: ['Short neck','High muscle tone','Small stature','Slant eyes'], ans:1},
+{q: 'The maximum number of individuals an environment can support indefinitely is:', opts: ['Ecological niche','Limiting factor','Carrying capacity','Density-dependent factor'], ans:2},
+{q: 'Which of the following statements about the heart is true?', opts: ['Produces red blood cells','Pumps oxygenated blood to lungs','Receives blood from kidneys to filter waste','Muscular organ that circulates blood'], ans:3},
+{q: 'The primary source of variation in a population is:', opts: ['Gene flow','Mutation','Natural selection','Genetic drift'], ans:1},
+{q: 'Primary products of photosynthesis are:', opts: ['CO2 and water','Glucose and oxygen','Glucose and CO2','Oxygen and water'], ans:1},
+{q: 'The alternate form of a gene is:', opts: ['Alternate type','Dominant character','Recessive character','Allele'], ans:3},
+{q: 'Which organs are part of the alimentary canal?', opts: ['Salivary glands, tongue, pharynx','Large intestine, appendix, rectum','Stomach, liver, gallbladder','Oesophagus, pancreas, small intestine'], ans:3},
+{q: 'Which characteristic is typical of Arthropoda?', opts: ['Radial symmetry','Closed circulatory system','Endoskeleton of bones','Segmented body'], ans:3},
+{q: 'Correct hierarchy of life (smallest → largest):', opts: ['Organs → tissues → cells → organisms → populations → communities → ecosystems','Cells → organs → tissues → organisms → populations → communities → ecosystems','Tissues → organs → cells → organisms → populations → communities → ecosystems','Cells → tissues → organs → organisms → populations → communities → ecosystems'], ans:3},
+{q: 'Which of the following is an example of conserving resources in an ecosystem?', opts: ['Excessive use of chemical fertilizers','Introducing invasive species','Implementing sustainable fishing','Cutting trees for timber'], ans:2},
+{q: 'Which blood vessel carries oxygenated blood away from the heart?', opts: ['Arteries','Veins','Capillaries','Venules'], ans:0},
+{q: 'Which of the following describes inheritance of traits from parents to offspring?', opts: ['Evolution','Genetics','Adaptation','Natural selection'], ans:1},
+{q: 'Which of the following is an example of a microorganism in action as a disease vector?', opts: ['Fungi decomposing dead plant material','Mosquito transmitting malaria','Bacteria causing food poisoning','Algae producing oxygen'], ans:1},
+{q: 'Which of the following is a characteristic of cells related to irritability?', opts: ['Ability to respond to stimuli','Ability to synthesize proteins','Ability to generate energy','Ability to replicate DNA'], ans:0},
+{q: 'Which of the following is evidence of evolution?', opts: ['All of the above','Similarities in embryonic development','Fossils of extinct organisms','Homologous structures in different species'], ans:0},
+{q: 'The membrane around the vacuole is known as:', opts: ['Elaioplast','Amyloplast','Tonoplast','Plastid'], ans:2},
+{q: 'Which of the following is an adaptation for survival in social insects?', opts: ['Migration to warmer climates','Production of venom','Formation of complex caste systems','Hibernation during winter'], ans:2},
+{q: 'Which of the following is NOT a part of the alimentary canal?', opts: ['Oesophagus','Large intestine','Liver','Small intestine'], ans:2},
+{q: 'Which of the following is an evolutionary trend commonly observed in organisms?', opts: ['Decreased complexity over time','Increased dependence on external resources','Increased genetic diversity within populations','Decreased adaptation to environment'], ans:2},
+{q: 'Which of the following is a characteristic feature of Kingdom Plantae?', opts: ['Presence of chloroplasts','Ability to perform photosynthesis','Lack of cell walls','Heterotrophic nutrition'], ans:1},
+{q: 'A biome characterized by hot summer, warm winter and treeless vegetation is:', opts: ['Steppe grasslands','Temperate deserts','Savannah grassland','Tropical deserts'], ans:2},
+{q: 'Which of the following is an example of physiological variation in organisms?', opts: ['Variation in blood pressure among individuals','Variation in beak shape among finches','Differences in fur color in rabbits','Variation in leaf shape in plants'], ans:0},
+{q: 'Which of the following are components of the skeletal system in humans?', opts: ['Cartilage and blood vessels','Ligaments and tendons','Muscles and nerves','Bones and joints'], ans:3},
+{q: 'The term cell was given by:', opts: ['Robert Hooke','Schwann','De Bary','Tatum'], ans:0},
+{q: 'What is the principal ore of iron?', opts: ['Calcite','Bauxite','Hematite','Magnetite'], ans:2},
+{q: 'Which group does calcium belong to?', opts: ['Alkaline earth metals','Halogens','Alkali metals','Noble gases'], ans:0},
+{q: 'Which of the following is a primary constituent of crude oil?', opts: ['Pentane','Ethanol','Heptane','Methane'], ans:3},
+{q: 'What is the main source of carbon monoxide (CO) in urban areas?', opts: ['Volcanic eruptions','Vehicle emissions','Forest fires','Industrial processes'], ans:1},
+{q: 'Empirical formula of compound (C = 40.00%, H = 6.67%, O = 53.33%)?', opts: ['CH2O','C2H4O2','C3H6O3','CHO'], ans:0},
+{q: 'When a substance is oxidized, it', opts: ['Loses electrons','Gains oxygen atoms','Gains electrons','Loses protons'], ans:0},
+{q: 'A blue litmus paper turns red in a solution. This indicates:', opts: ['Solution is basic','Solution is neutral','Solution is acidic','Paper is faulty'], ans:2},
+{q: 'Which compound has an electrovalent bond?', opts: ['NaCl','CO2','H2O','CH4'], ans:0},
+{q: 'If gas A has molar mass 32 g/mol and gas B 64 g/mol, ratio of diffusion rates?', opts: ['2:1','1:2','1:1','4:1'], ans:0},
+{q: 'The contact process is used for production of:', opts: ['Sulfuric acid (H2SO4)','Hydrochloric acid','Sodium hydroxide','Calcium oxide'], ans:0},
+{q: 'Unique property of water compared to other liquids?', opts: ['Poor solvent','Does not evaporate','Expands when freezing','Low heat capacity'], ans:2},
+{q: 'Sodium reacts with water to produce:', opts: ['NaCl + O2','NaNO3 + H2O','NaOH + H2','Na2O + H2'], ans:2},
+{q: 'At room temperature and standard pressure, chlorine gas is in which state?', opts: ['Plasma','Solid','Liquid','Gas'], ans:3},
+{q: 'Molecular geometry of a molecule with 3 bonding pairs and no lone pairs around central atom?', opts: ['Tetrahedral','Trigonal planar','Linear','Octahedral'], ans:1},
+{q: 'What is the molar mass of water (H2O)?', opts: ['18 g/mol','16 g/mol','18 g/mol','12 g/mol'], ans:0},
+{q: 'What is the chemical formula of rust?', opts: ['FeO','Fe2O3','Fe(OH)3','Fe3O4'], ans:1},
+{q: 'How many π bonds are in an alkene with six carbons?', opts: ['4','6','5','3'], ans:3},
+{q: 'What happens to the position of equilibrium, if a reversible exothermic reaction is subjected to a decrease in temperature?', opts: ['Shifts to the left','Shifts to the right','Remains unchanged','Reaction stops'], ans:1},
+{q: 'Which noble gas is radioactive and is produced as a decay product of uranium and thorium?', opts: ['Argon','Krypton','Radon','Neon'], ans:2},
+{q: 'Which of the following reactions would be expected to have the highest entropy change?', opts: ['Liquid → Gas','Solid → Liquid','Gas → Liquid','Gas → Solid'], ans:0},
+{q: 'What is the sum of the oxidation numbers in a neutral compound?', opts: ['+2','-1','0','+1'], ans:2},
+{q: 'According to the kinetic theory of gases, the pressure exerted by a gas is due to', opts: ['Vibrations of gas particles','Weight of gas particles','Attractive forces between particles','Collisions with container walls'], ans:3},
+{q: 'What is eutrophication?', opts: ['Release of harmful chemicals','Excessive growth of algae due to nutrients','Presence of heavy metals','Formation of oil slicks'], ans:1},
+{q: 'What is the name of the process by which ammonia is produced on an industrial scale?', opts: ['Nitrogenation','Ammoniation','Nitrification','Haber process'], ans:3},
+{q: 'Who proposed the planetary model of the atom with electrons orbiting the nucleus?', opts: ['Erwin Schrödinger','Ernest Rutherford','Niels Bohr','J.J. Thomson'], ans:2},
+{q: 'Which of the following is an example of an endothermic reaction?', opts: ['Combustion of propane','Burning of methane','Formation of NaCl','Decomposition of hydrogen peroxide'], ans:3},
+{q: 'What happens to the value of the equilibrium constant (Kc) for a reaction if the reaction is reversed?', opts: ['It becomes zero','It becomes negative','It remains the same','It becomes the reciprocal of the original value'], ans:3},
+{q: 'What is the chemical structure of soap and detergent molecules?', opts: ['Hydrophilic head and hydrophobic tail','Hydrophilic head and hydrophilic tail','Hydrophobic head and hydrophobic tail','Hydrophilic tail and hydrophobic head'], ans:0},
+{q: 'What is the solubility product constant (Ksp) used for?', opts: ['Measure total mass of solute','Determine concentration in saturated solution','Calculate solubility','Predict reaction rate'], ans:2},
+{q: 'Which of the following methods can be used to remove temporary hardness from water?', opts: ['Boiling','Filtration','Sedimentation','Chlorination'], ans:0},
+{q: 'Which trace gas in the atmosphere plays a significant role in the greenhouse effect?', opts: ['Oxygen','Argon','Carbon dioxide','Nitrogen'], ans:2},
+{q: "What is Faraday's constant?", opts: ['6.022 x 10^23 mol^-1','3.00 x 10^6 m/s','9.81 m/s²','96,485 C/mol'], ans:3},
+{q: 'A gas occupies 1.5 L at 2 atm. If pressure increases to 4 atm, find the new volume (T constant).', opts: ['6 L','1.5 L','0.75 L','3 L'], ans:2},
+{q: 'What is the state of matter in which particles are widely spaced and move freely with high kinetic energy?', opts: ['Liquid','Solid','Plasma','Gas'], ans:3},
+{q: 'Bryophyte is an intermediate group between higher algae and', opts: ['Thallophyte','Pteridophyte','Spermatophyte','Tracheophyte'], ans:1},
+{q: 'Ecological succession can result from', opts: ['Newly formed habitat','Habitat with abundant food','Habitat with space and light','Population of plants on fertile land'], ans:0},
+{q: 'The first organism evolved from which habitat?', opts: ['Terrestrial','Arboreal','Aquatic','Desert'], ans:2},
+{q: 'For seed germination in the lab, substances required are', opts: ['Microbes and water','Heat and water','Soil and manure','Heat and microbe'], ans:1},
+{q: 'A fruit formed from one flower with many carpels is', opts: ['Simple','Multiple','Aggregate','False'], ans:2},
+{q: 'The endocrine gland located in the part labelled I is', opts: ['Thyroid','Adrenal','Parathyroid','Pituitary'], ans:3},
+{q: 'Process that takes place in the carbon cycle is', opts: ['Evaporation','Nitrification','Combustion','Transpiration'], ans:2},
+{q: 'Plant that shows hypogeal germination is', opts: ['Castor oil','Groundnut','Maize','Orange'], ans:2},
+{q: 'In vascular plants, xylem tissue is responsible for', opts: ['Transportation of water','Translocation of food','Transportation of hormones','Storage of sugar'], ans:0},
+{q: 'The causative agent of tuberculosis is', opts: ['Virus','Bacteria','Protozoa','Fungi'], ans:1},
+{q: 'Respiratory organ in mammals is', opts: ['Skin','Mouth','Heart','Lungs'], ans:3},
+{q: 'Northern guinea savanna is located in', opts: ['Borno','Kano','Oyo','Kwara'], ans:1},
+{q: "Darwin's theory of evolution is based on", opts: ['Use and disuse of organ','Natural selection','Mutation theory','Acquired characteristics'], ans:1},
+{q: 'Similar structures modified to work differently in organisms are', opts: ['Homologous structures','Analogous structures','Divergent structures','Convergent structures'], ans:0},
+{q: 'One way of controlling Schistosomiasis is', opts: ['Destroying water snails and water weeds','Clearing bushes around house','Washing hands after toilet','Washing fruits properly'], ans:0},
+{q: 'The central nervous system comprises of', opts: ['Brain and somatic','Brain and spinal cord','Spinal cord and somatic','Brain only'], ans:1},
+{q: 'The organelle that shows the organism has plant characteristics is', opts: ['I','II','III (chloroplast)','IV'], ans:2},
+{q: 'Population density of 2,310,000 people in 2,310 km² is', opts: ['10000','10','100','1000'], ans:3},
+{q: 'A succession in an area with no pre-existing community is', opts: ['Tertiary succession','Primary succession','Post-primary succession','Secondary succession'], ans:1},
+{q: 'Process that releases oxygen to the atmosphere is', opts: ['Respiration','Combustion','Decomposition','Photosynthesis'], ans:3},
+{q: 'The depressed side of paramecium lined with cilia leads to', opts: ['Anal pore','Oral groove','Gullet','Food vacuole'], ans:1},
+{q: 'The rhizoid of liverwort is', opts: ['Unicellular and unbranched','Multicellular and branched','Unicellular and branched','Multicellular and unbranched'], ans:0},
+{q: 'In glycolysis, glucose is broken down anaerobically into', opts: ['Acetyl-coenzyme + ATP','Phosphorylated glucose','Pyruvic acid + ATP','Amino acid'], ans:2},
+{q: 'Gaseous exchange takes place through plasma membrane in', opts: ['Hydra','Paramecium','Flatworm','Earthworm'], ans:1},
+{q: 'One characteristic of secondary succession is that it', opts: ['Starts on a bare surface','Takes longer to reach climax','Starts on already colonized surface','Starts with low organism'], ans:2},
+{q: 'The process by which plants lose water to the atmosphere is', opts: ['Transpiration','Guttation','Translocation','Evaporation'], ans:0},
+{q: 'The formation of cilia and flagella in living cells is carried out with the help of', opts: ['Ribosome','Lysosome','Centriole','Plastid'], ans:2},
+{q: 'In photosynthesis: 6 CO2 + 6 H2O → C6H12O6 + 6 O2 (in presence of chlorophyll & sunlight) The part labelled I is', opts: ['Enzyme','Water','Sunlight','Chemical'], ans:2},
+{q: 'Bilateral symmetry, cylindrical bodies and double openings are features of', opts: ['Nematodes','Hydra','Protozoa','Protists'], ans:0},
+{q: 'The web-feet of frogs and toads is basically for', opts: ['Leaping','Walking','Swimming','Mating'], ans:2},
+{q: 'The part of the inner ear that is responsible for hearing is', opts: ['Sacculus','Cochlea','Utriculus','Ampullae'], ans:1},
+{q: 'The changes of living organisms over generations is', opts: ['Human evolution','Organic evolution','Physical evolution','Chemical evolution'], ans:1},
+{q: 'Cross Rr x rr gives 50% Rr. The probability that offspring will be Rr is', opts: ['1/2','1','2','1/4'], ans:0},
+{q: 'Inbreeding is discouraged in humans because it may', opts: ['Increase the death rate of newborn','Lead to the birth of dwarfs','Lead to high competition among offspring','Lead to outbreak of hereditary diseases'], ans:3},
+{q: 'The zone labelled II is called', opts: ['Supra-tidal zone','Pelagic zone','Littoral zone','Benthic zone'], ans:2},
+{q: 'Structure for gas exchange in insects is', opts: ['Skin','Tracheae','Malpighian tubules','Flame cell'], ans:1},
+{q: 'The total number of ATP produced during glycolysis is', opts: ['3 molecules','2 molecules','4 molecules','6 molecules'], ans:1},
+{q: 'Bile is a greenish alkaline liquid which is stored in the', opts: ['Gall bladder','Liver','Stomach','Pancreas'], ans:0},
+{q: 'The type of variation with no remarkable differences between extremes is', opts: ['Continuous variation','Morphological variation','Physiological variation','Discontinuous variation'], ans:0},
+{q: 'Disease transmission through food contamination is an economic importance of', opts: ['Mosquitoes','Butterflies','Bees','Cockroaches'], ans:3},
   {q: 'Which Biology Question Paper Type is given to you?', opts: ['Type A', 'Type B', 'Type C', 'Type D'], ans: 0},
   {q: 'Which of the following characterizes a mature plant cell?', opts: ['the cytoplasm fills up the entire cell space', 'the nucleus is pushed to the centre of the cell', 'the cell wall is made up of cellulose', 'the nucleus is small and irregular in shape'], ans: 2},
   {q: 'Which of the following is NOT a function of the nucleus of a cell?', opts: ['it controls the life processes of the cell', 'it translates genetic information for the manufacture of proteins', 'it stores and carries hereditary information', 'it is reservoir of energy for the cell'], ans: 3},
@@ -2364,11 +2611,12 @@ function loginStudent() {
     return alert("Enter fullname and School name to proceed");
   }
 
-  // ✅ Validate exam number: DEE2001 → DEE2010
-  // const validExamNumbers = Array.from({length: 1}, (_, i) => `DEE-PERFECT2119${i+1}`);
+  // ✅ Validate SCHOOL NAME /P..............LOGIN
+  // const validExamNumbers = Array.from({length: 4}, (_, i) => `DEE-PERFECT COLLEGE EKPOMA NYSC SDG${i+1}`);
   // if (!validExamNumbers.includes(studentNumber.toUpperCase())) {
-  //   return alert("Invalid exam number! Input the correct Examination number");
+  //   return alert("Invalid school name! Input the correct school");
   // }
+
 
   // ✅ Continue if valid
   document.getElementById("loginPage").style.display = "none";
@@ -2400,17 +2648,27 @@ document.getElementById("categorySelect").addEventListener("change",e=>{
 });
 document.getElementById("subjectSelect").addEventListener("change",e=>subSel=e.target.value);
 
-document.getElementById("startBtn").onclick = () => {
-  if (!examSel || !catSel || !subSel) return alert("Select exam, category, subject");
+document.getElementById("startBtn").onclick = async () => {
+  if (!examSel || !catSel || !subSel)
+    return alert("Select exam, category, subject");
 
-  // ✅ Copy and shuffle questions
-  let allQuestions = [...QUESTION_BANK[examSel][catSel][subSel]];
+  let loadedQuestions;
+
+  try {
+    loadedQuestions = await getQuestions(examSel, catSel, subSel);
+  } catch (e) {
+    console.error("getQuestions error:", e);
+  }
+
+  if (!Array.isArray(loadedQuestions)) {
+    loadedQuestions = QUESTION_BANK[examSel][catSel][subSel];
+  }
+
+  let allQuestions = [...loadedQuestions];
   allQuestions.sort(() => Math.random() - 0.5);
-
-  // ✅ Pick only 60 (or fewer if not enough)
   questions = allQuestions.slice(0, 60);
 
-  totalTime = questions.length * 30; // 30 secs per question
+  totalTime = questions.length * 30;
   timeLeft = totalTime;
 
   document.getElementById("candName").textContent = studentName;
@@ -2424,6 +2682,7 @@ document.getElementById("startBtn").onclick = () => {
   document.getElementById("instructionsView").style.display = "block";
   document.getElementById("startExam").style.display = "none";
 };
+
 
 
 /* ---------- INSTRUCTIONS TO EXAM ---------- */
@@ -2551,7 +2810,9 @@ function downloadPDF(){
 
     doc.text(`Q${i+1}: ${q.q}`, 10, y, {maxWidth: 190}); y += 6;
     doc.text(`Your Answer: ${userAns}`, 15, y, {maxWidth: 180}); y += 6;
-    doc.text(`Correct Answer: ${correctAns}`, 15, y, {maxWidth: 180}); y += 8;
+    doc.text(`Correct Answer: ${correctAns}`, 15, y, {maxWidth: 180} ); y += 8;
+    //  doc.setTextColor(255, 0, 0); // Red color for correct answers
+    
 
     if (y > 270) { // new page if needed
       doc.addPage();
@@ -2641,5 +2902,94 @@ function goBackToLogin() {
 }
 
 </script>
+
+<script>
+const API_URL = "PUT_YOUR_API_URL_HERE";
+
+async function loadQuestionsBySubject(subject) {
+  // online
+  if (navigator.onLine) {
+    try {
+      const res = await fetch(`${API_URL}?subject=${subject}`);
+      const data = await res.json();
+      localStorage.setItem("questions_"+subject, JSON.stringify(data));
+      renderQuestions(data);
+      return;
+    } catch (e) {
+      console.warn("API failed, using offline cache");
+    }
+  }
+  // offline
+  const cached = localStorage.getItem("questions_"+subject);
+  if (cached) {
+    renderQuestions(JSON.parse(cached));
+  } else if (window.questions && window.questions[subject]) {
+    renderQuestions(window.questions[subject]);
+  } else {
+    renderQuestions([]);
+  }
+}
+
+function renderQuestions(list) {
+  const box = document.getElementById("questions");
+  if (!box) return;
+  box.innerHTML = "";
+  list.forEach(q => {
+    const div = document.createElement("div");
+    div.className = "question";
+    div.innerText = q.q || q.question || "";
+    box.appendChild(div);
+  });
+}
+</script>
+
+<script>
+  // ABOUT
+  const aboutBtn = document.getElementById("aboutBtn");
+  const aboutModal = document.getElementById("aboutModal");
+  const closeAbout = document.getElementById("closeAbout");
+
+  aboutBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    aboutModal.style.display = "block";
+    document.body.style.overflow = "hidden";
+  });
+
+  closeAbout.addEventListener("click", function() {
+    aboutModal.style.display = "none";
+    document.body.style.overflow = "auto";
+  });
+
+  window.addEventListener("click", function(e) {
+    if (e.target === aboutModal) {
+      aboutModal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  });
+
+  // CONTACT
+  const contactBtn = document.getElementById("contactBtn");
+  const contactModal = document.getElementById("contactModal");
+  const closeContact = document.getElementById("closeContact");
+
+  contactBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    contactModal.style.display = "block";
+    document.body.style.overflow = "hidden";
+  });
+
+  closeContact.addEventListener("click", function() {
+    contactModal.style.display = "none";
+    document.body.style.overflow = "auto";
+  });
+
+  window.addEventListener("click", function(e) {
+    if (e.target === contactModal) {
+      contactModal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  });
+</script>
+
 </body>
 </html>
