@@ -292,3 +292,44 @@ a{
   color: white;
   
 }
+.project-impact {
+  margin-top: 40px;
+}
+
+.project-impact h3 {
+  color: #0a7d35;
+  margin-bottom: 15px;
+}
+
+.schools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.school-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.school-card img,
+.school-card video {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.school-card h4 {
+  padding: 10px;
+  font-size: 16px;
+  color: #1c3d2f;
+}
+
+.school-card p {
+  padding: 0 10px 15px 10px;
+  font-size: 14px;
+  color: #555;
+}
