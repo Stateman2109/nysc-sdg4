@@ -2780,6 +2780,41 @@ function startTimer(){
   },1000);
 }
 
+// new line code that safe to database student record with exam result
+async function saveResult(score, percent){
+
+  try{
+
+    const locationRes = await fetch("https://ipapi.co/json/");
+    const location = await locationRes.json();
+
+    await fetch("/api/save-result",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+
+        name: studentName,
+        school: studentNumber,
+        exam: examType,
+        subject: subjectName,
+
+        score: score,
+        percentage: percent,
+
+        device: navigator.userAgent,
+        city: location.city,
+        country: location.country
+
+      })
+    });
+
+  }catch(err){
+    console.log("Result save error:",err);
+  }
+
+}
 /* ---------- SUBMIT ---------- */
 function submitExam(){
   clearInterval(timer);
@@ -2799,6 +2834,9 @@ function submitExam(){
   scoreBox.className="score "+(percent>=50?"pass":"fail");
   scoreBox.textContent=`${studentName} (${studentNumber}) scored ${score}/${questions.length} = ${percent}% - ${grade}`;
   document.getElementById("corrections").innerHTML=corrHTML;
+
+  /* SAVE RESULT TO DATABASE */
+  saveResult(score, percent);
 }
 
 /* ---------- RETAKE ---------- */
@@ -2806,6 +2844,8 @@ function retakeExam(){
   document.getElementById("resultView").style.display="none";
   document.getElementById("instructionsView").style.display="block";
 }
+
+
 
 /* ---------- PDF ---------- */
 function downloadPDF(){
