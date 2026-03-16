@@ -1,20 +1,17 @@
-import { sql } from "@vercel/postgres";
+import supabaseClient from "./supabase.js";
 
-export default async function handler(req, res) {
+async function getResults() {
+  const { data, error } = await supabaseClient
+    .from("results")
+    .select("*")
+    .order("created_at", { ascending: false });
 
-try {
+  if (error) {
+    console.error(error);
+    return;
+  }
 
-const { rows } = await sql`
-SELECT * FROM results
-ORDER BY created_at DESC
-`;
-
-return res.status(200).json(rows);
-
-} catch (error) {
-
-return res.status(500).json({ error: error.message });
-
+  console.log(data);
 }
 
-} 
+getResults();

@@ -1,37 +1,11 @@
-import { sql } from '@vercel/postgres';
+import supabaseClient from "./supabase.js";
 
-export default async function handler(req, res) {
+async function saveResult(data) {
+  const { error } = await supabaseClient.from("results").insert([data]);
 
-if (req.method !== 'POST') {
-return res.status(405).json({ error: "Method not allowed" });
-}
-
-try {
-
-const {
-name,
-school,
-exam,
-subject,
-score,
-device,
-city,
-country
-} = req.body;
-
-await sql`
-INSERT INTO results
-(name, school, exam, subject, score, device, city, country, created_at)
-VALUES
-(${name}, ${school}, ${exam}, ${subject}, ${score}, ${device}, ${city}, ${country}, NOW())
-`;
-
-return res.status(200).json({ success: true });
-
-} catch (error) {
-
-return res.status(500).json({ error: error.message });
-
-}
-
+  if (error) {
+    console.error(error);
+  } else {
+    console.log("Result saved");
+  }
 }
