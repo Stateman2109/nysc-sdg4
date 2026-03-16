@@ -1,3 +1,5 @@
+<script src="/js/supabase.js"></script>;
+
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 async function getResults() {
