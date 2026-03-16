@@ -1,4 +1,4 @@
-import supabaseClient from "./supabase.js";
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 async function getResults() {
   const { data, error } = await supabaseClient
