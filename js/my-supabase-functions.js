@@ -14,11 +14,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (error) {
       console.error("Insert Error:", error.message);
-      return false;
+      return false;g
     }
     // SAVE RESULT
     console.log("✅ Saved successfully");
     return true;
+  };
+  /* ---------- AUTH ---------- */
+  window.loginWithGoogle = async function () {
+    await window.db.auth.signInWithOAuth({
+      provider: "google",
+    });
+  };
+
+  window.getCurrentUser = async function () {
+    const {
+      data: { user },
+    } = await window.db.auth.getUser();
+
+    return user;
+  };
+
+  window.logout = async function () {
+    await window.db.auth.signOut();
+    location.reload();
   };
 
   /* ---------- GET ALL ---------- */
