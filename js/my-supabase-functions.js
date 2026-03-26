@@ -14,16 +14,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (error) {
       console.error("Insert Error:", error.message);
-      return false;g
+      return false;
+      g;
     }
     // SAVE RESULT
     console.log("✅ Saved successfully");
     return true;
   };
   /* ---------- AUTH ---------- */
+  // window.loginWithGoogle = async function () {
+  //   await window.db.auth.signInWithOAuth({
+  //     provider: "google",
+  //   });
+  // };
+
   window.loginWithGoogle = async function () {
     await window.db.auth.signInWithOAuth({
       provider: "google",
+      options: {
+        redirectTo: "https://nysc-sdg4.vercel.app/admin.html", // 🔥 CHANGE THIS
+      },
     });
   };
 
