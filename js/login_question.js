@@ -27,10 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ✅ Validate AMEIRA PASSWORD.....................AMS NYSC SDG...4
 
-    // const validExamNumbers = Array.from({length: 4}, (_, i) => `AMS NYSC SDG${i+1}`);
-    //   if (!validExamNumbers.includes(studentNumber.toUpperCase())) {
-    //      return alert("Invalid school name! Input the correct school");
-    //    }
+    // const validExamNumbers = Array.from(
+    //   { length: 4 },
+    //   (_, i) => `FA EKPOMA NYSC SDG${i + 1}`,
+    // );
+    // if (!validExamNumbers.includes(studentNumber.toUpperCase())) {
+    //   return alert("Invalid school name! Input the correct school");
+    // }
 
     // ✅ Continue if valid
     document.getElementById("loginPage").style.display = "none";
@@ -126,16 +129,47 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------- EXAM ---------- */
   function renderQuestion() {
     const q = questions[current];
-    let html = `<div class="question"><p><strong>Q${current + 1}:</strong> ${q.q}</p>`;
+
+    let html = `
+    <div class="question">
+      <p><strong>Q${current + 1}:</strong> ${q.q}</p>
+  `;
+
     q.opts.forEach((opt, i) => {
       const checked = answers[current] === i ? "checked" : "";
-      html += `<label><input type="radio" name="q${current}" value="${i}" ${checked} onchange="selectAnswer(${current},${i})"/> ${opt}</label><br>`;
+
+      html += `
+      <label>
+        <input 
+          type="radio" 
+          name="q${current}" 
+          value="${i}" 
+          ${checked}
+          data-q="${current}" 
+          data-i="${i}"
+        />
+        ${opt}
+      </label><br>
+    `;
     });
+
     html += "</div>";
+
     document.getElementById("questionContainer").innerHTML = html;
+
+    // ✅ Attach event listeners AFTER rendering
+    document.querySelectorAll(`input[name="q${current}"]`).forEach((input) => {
+      input.addEventListener("change", function () {
+        const qIndex = parseInt(this.dataset.q);
+        const optionIndex = parseInt(this.dataset.i);
+        selectAnswer(qIndex, optionIndex);
+      });
+    });
+
     updateProgress();
     renderPagination();
   }
+  
   function selectAnswer(qIndex, opt) {
     answers[qIndex] = opt;
     renderPagination();
