@@ -61,21 +61,21 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 /* ---------- LOAD STUDENTS ---------- */
 window.loadStudents = async function () {
-  const students = await getStudents();
+  const data = await window.DBgetStudents(); // ✅ correct
   const table = document.getElementById("studentTable");
   const total = document.getElementById("totalCount");
 
   table.innerHTML = "";
 
-  if (!students.length) {
+  if (!data.length) {
     table.innerHTML = `<tr><td colspan="4">No records found</td></tr>`;
     total.innerText = 0;
     return;
   }
 
-  total.innerText = students.length;
+  total.innerText = data.length;
 
-  students.forEach((s, index) => {
+  data.forEach((s, index) => {
     const row = `
       <tr>
         <td>${index + 1}</td>
