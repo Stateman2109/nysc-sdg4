@@ -1,3 +1,5 @@
+// i add document add listner to it ...............incase error occure
+document.addEventListener("DOMContentLoaded", () => {
 const ADMIN_EMAILS = [
   "statemantech@gmail.com", // 🔴 CHANGE THIS
 ];
@@ -86,3 +88,5 @@ window.loadStudents = async function () {
     table.innerHTML += row;
   });
 };
+});
+// closing the tag here }); line 91.
