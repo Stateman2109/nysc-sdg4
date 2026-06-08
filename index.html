@@ -283,7 +283,13 @@
             </p>
             <div class="project-impact">
               <h3>Beneficiary Schools & Project Impact</h3>
-
+              <button>
+                <a
+                  href="gallery.html"
+                  style="text-decoration: none; color: green"
+                  >Click here for more gallery</a
+                >
+              </button>
               <p>
                 As part of the NYSC Community Development Service (CDS)
                 initiative under SDG 4 – Quality Education, this CBT Practice
@@ -304,7 +310,10 @@
 
                 <div class="school-card">
                   <img src="img/Christ.jpg" alt="School Visit" />
-                  <h4>Christ The Answer Group of Schools Idumegan, Ekpoma Edo State</h4>
+                  <h4>
+                    Christ The Answer Group of Schools Idumegan, Ekpoma Edo
+                    State
+                  </h4>
                   <p>
                     Demonstration of the CBT platform to students and teachers.
                   </p>
@@ -344,10 +353,18 @@
 
                 <div class="school-card">
                   <video controls>
-                    <source src="videos/sdgT.mp4" type="video/mp4" />
+                    <source src="videos/Timzy.mp4" type="video/mp4" />
                   </video>
                   <h4>CBT Demonstration Session</h4>
                   <p>Students practicing CBT examination using the platform.</p>
+                </div>
+
+                <div class="school-card">
+                  <img src="img/Timzy.jpg" alt="School Visit" />
+                  <h4>Timzy International College Ekpoma, Edo State</h4>
+                  <p>
+                    Demonstration of the CBT platform to students and teachers.
+                  </p>
                 </div>
 
                 <div class="school-card">
@@ -510,6 +527,23 @@
         if (e.target === contactModal) {
           contactModal.style.display = "none";
           document.body.style.overflow = "auto";
+        }
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Checks if user returned via the specific openAbout hash link
+        if (window.location.hash === "#openAbout") {
+          const aboutModal = document.getElementById("aboutModal");
+
+          if (aboutModal) {
+            // Switches modal structure visibility to active view layout state
+            aboutModal.style.display = "block";
+
+            // Gently strips hash fragment track values away to leave URL clear
+            history.replaceState(null, null, window.location.pathname);
+          }
         }
       });
     </script>

@@ -333,3 +333,64 @@ a{
   font-size: 14px;
   color: #555;
 }
+
+
+/* gallary css */
+/* ================= GALLERY AND BUTTON STYLES ================= */
+
+/* Container for the link button inside the modal */
+.view-more-container {
+  text-align: center;
+  margin-top: 25px;
+}
+
+/* Styled link to act like a green action button */
+.view-more-btn {
+  display: inline-block;
+  background-color: #008751; /* Official NYSC Green color */
+  color: #ffffff;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.view-more-btn:hover {
+  background-color: #005c36;
+}
+
+/* Base structural styles for the dedicated gallery file template */
+.gallery-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.gallery-header {
+  margin-bottom: 30px;
+}
+
+.gallery-header h2 {
+  font-size: 28px;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Back navigation anchor element */
+.back-btn {
+  display: inline-block;
+  color: #008751;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+  transition: color 0.2s ease;
+}
+
+.back-btn:hover {
+  color: #005c36;
+  text-decoration: underline;
+}
