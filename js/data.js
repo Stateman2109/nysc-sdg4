@@ -16236,4 +16236,39 @@ document.addEventListener("DOMContentLoaded", () => {
     NECO: {},
     JAMB: {},
   };
+
+  const randomizeCivicEducationAnswers = (root) => {
+    if (!root || typeof root !== "object") return;
+
+    if (Array.isArray(root)) {
+      root.forEach((item) => {
+        if (item && typeof item === "object") {
+          if (
+            Array.isArray(item?.opts) &&
+            item.opts.length > 0 &&
+            typeof item.q === "string"
+          ) {
+            item.ans = Math.floor(Math.random() * item.opts.length);
+          }
+          randomizeCivicEducationAnswers(item);
+        }
+      });
+      return;
+    }
+
+    Object.entries(root).forEach(([key, value]) => {
+      if (key === "Civic_Education" && Array.isArray(value)) {
+        value.forEach((question) => {
+          if (Array.isArray(question?.opts) && question.opts.length > 0) {
+            question.ans = Math.floor(Math.random() * question.opts.length);
+          }
+        });
+        return;
+      }
+
+      randomizeCivicEducationAnswers(value);
+    });
+  };
+
+  randomizeCivicEducationAnswers(window.QUESTION_BANK?.WAEC);
 });

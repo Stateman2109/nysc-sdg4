@@ -54,6 +54,16 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
+  function randomizeQuestionAnswers(questionSet) {
+    if (!Array.isArray(questionSet)) return;
+
+    questionSet.forEach((q) => {
+      if (Array.isArray(q?.opts) && q.opts.length > 0) {
+        q.ans = Math.floor(Math.random() * q.opts.length);
+      }
+    });
+  }
+
   /* ---------- FLOW ---------- */
   document.getElementById("examSelect").addEventListener("change", (e) => {
     examSel = e.target.value;
@@ -94,6 +104,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!Array.isArray(loadedQuestions)) {
       loadedQuestions = QUESTION_BANK[examSel][catSel][subSel];
     }
+
+    randomizeQuestionAnswers(loadedQuestions);
 
     let allQuestions = [...loadedQuestions];
     allQuestions.sort(() => Math.random() - 0.5);
@@ -169,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateProgress();
     renderPagination();
   }
-  
+
   function selectAnswer(qIndex, opt) {
     answers[qIndex] = opt;
     renderPagination();
